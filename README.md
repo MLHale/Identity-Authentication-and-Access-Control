@@ -1,36 +1,31 @@
-# Identity Authentication and Access Control
+# Identity, Authentication, and Access Control
 
 ## Introduction
-Intro text here
+`Identity`, `Authentication`, and `Access Control` are three core concepts that, respectively, help determine who someone is, verify who they say they are, and then allow them work and interact with a set of approved objects appropriate to who they are or what roles they fill. This module explores these concepts to illustrate them in the real world and in cyberspace. The module includes a variety of hands-on labs that help students build up and scaffold these concepts. 
+
+## Intended Audience
+Undergraduate students in an Introduction to Cybersecurity Class
 
 ## Learning Objectives
-By the end of this tutorial, you will be able to:
+By the end of this module, students will be able to:
 
-* objective 1
-* objective 2
+* Define personal identity in terms of digital and physical attributes and information.
+* Differentiate between a digital identity (who someone is) and a digital credential (how someone proves who they are).
+* Place different types of credentials into categories by associating them with one of the three phrases: "something you know," "something you have," and "something you know"
+* Associate credentialing with role-based permissions and discern between different levels of access needs as part of different scenarios. 
+* Describe the relationship between password complexity and the amount of time required to crack a password.
 
 ## Materials Required
 
-* material one
-* material two
+* see specific lab guides for materials
 
 ## Prerequisite lessons
 None
 
-### Table of Contents
-<!-- TOC START min:1 max:3 link:true update:true -->
-
-
-<!-- TOC END -->
-
-### Reflection
-In this lesson, we saw what ??
-
-### Additional Resources
-For more information, investigate the following:
+## Assessment
+Assessment strategy goes here
 
 ## Lead Author
-
 - Dr. Matthew Hale, University of Nebraska at Omaha
 
 ### Acknowledgements
