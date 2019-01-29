@@ -25,19 +25,31 @@ None
 ## Learning Facilitation
 ### Warm up Activities
 * Role Play an identity, authentication, and access control scenario (see - [role play scenario](#role-play-scenario))
-* Introduce the concept of Identity, Roles, and Permissions more formally (see - [Intro](#intro))
+* Introduce the concept of Identity, Roles, and Permissions more formally (see - [Intro Slides](#intro))
 
 ### Focused Activities
 * Examine a real identity, authentication, and access control scenario online (see - [identity lab](#identity-lab))
-* Explore password complexity and brute forcing  (see - [password lab](#password-lab))
 
 ### Closure
-Reflect 
+* Generalize lesson learned in the context of Theoretical content (see - [theoretical slides](#theory))
+* Reflect on lessons learned
+
+### Warm up 2: Authentication factor quality 
+* Discuss verifiers, relating back to prior lesson 
+* Run brute forcing demo 
+
+### Focused Activities 2
+* Introduction to complexity (see - [introduction to complexity](#intro-to-complexity))
+* Explore password complexity and brute forcing lab  (see - [password lab](#password-lab))
+
+### Closure 2
+* Reflection and connection to their own personal lives (do students use secure passwords)
 
 ## Assessment
 Assessment strategy goes here
 
-## Role Play Scenario (15 minutes)
+## Role Play Scenario 
+**Run time: 15 minutes**
 The entry point for the lesson is a role play scenario. Role play is an active learning technique that gets students up, moving, and interacting. The purpose of this exercise is to serve both as a `hook` to get students interested, and to provide a `scaffold` for students to work from as they explore the topic area. 
 
 The role play scenario should be structured as follows:
@@ -76,14 +88,26 @@ The role play scenario should be structured as follows:
   - Run this loop several times with several different permissions, have the entire class observe the workflow from start to finish.
 
 
-## Intro (15 minutes)
+## Intro
+**Run time: 15 minutes**
 After the role play scenario, the instructor should overview the lesson objectives and connect them to the role play activity. The attached intro slides introduce the module topics more formally and further fill-in detail that can be build on top of the role play scenario scaffolding. The objective is for students to conceptualize the various steps before an access decision can be granted, namely: `identify`, `authenticate`, `authorize.`
 
 The intro slides introduce these concepts and associated vocabulary.
 
-## Identity Lab
+## Identity Lab 
+**Run time: 1 hour**
 
-## Password Lab
+## Theory 
+**Run time: 1 hour**
+
+## Intro to complexity
+**Run time: 45 minutes**
+
+## Password Lab 
+**Run time: 45 minutes**
+
+
+
 
 ## Lead Author
 - Dr. Matthew Hale, University of Nebraska at Omaha
