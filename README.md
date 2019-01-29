@@ -10,7 +10,7 @@ Undergraduate students in an Introduction to Cybersecurity Class
 By the end of this module, students will be able to:
 
 * Define personal identity in terms of digital and physical attributes and information.
-* Differentiate between a digital identity (who someone is) and a digital credential (how someone proves who they are).
+* Differentiate between a digital identity (who someone is) and a credential (how someone proves who they are).
 * Place different types of credentials into categories by associating them with one of the three phrases: "something you know," "something you have," and "something you know"
 * Associate credentialing with role-based permissions and discern between different levels of access needs as part of different scenarios. 
 * Describe the relationship between password complexity and the amount of time required to crack a password.
@@ -21,6 +21,18 @@ By the end of this module, students will be able to:
 
 ## Prerequisite lessons
 None
+
+## Learning Facilitation
+### Warm up Activity
+Introduce the concept of Identity, Roles, and Permissions (see - [Intro](#intro))
+
+### Focused Activities
+* Role Play an identity, authentication, and access control scenario (see - [role play scenario](#role-play-scenario))
+* Examine a real identity, authentication, and access control scenario online (see - [identity lab](#identity-lab))
+* Explore password complexity and brute forcing  (see - [password lab](#password-lab))
+
+### Closure
+Reflect 
 
 ## Assessment
 Assessment strategy goes here
