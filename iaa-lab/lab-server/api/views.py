@@ -3,7 +3,7 @@
 # @Email:  mlhale@unomaha.edu
 # @Filename: controllers.py
 # @Last modified by:   mlhale
-# @Last modified time: 2019-01-29T13:59:35-08:00
+# @Last modified time: 2019-01-30T13:58:24-08:00
 # @Copyright: Copyright (C) 2018 Matthew L. Hale
 
 
@@ -45,20 +45,19 @@ def admin_or_401(request):
 	if not (request.user.is_staff or request.user.is_superuser):
 		return Response({'success': False},status=status.HTTP_401_UNAUTHORIZED)
 
-class ItemViewSet(viewsets.ModelViewSet):
+class RoleViewSet(viewsets.ModelViewSet):
 	"""
-	Endpoint to view the items
+	Endpoint to view the Roles
 	"""
-	resource_name = 'items'
-	serializer_class = api.ItemSerializer
-	queryset = api.Item.objects.all()
-	permission_classes = (AllowAny,)
-	filter_fileds = ('id', 'partname', 'owner', 'checkedoutto')
+	resource_name = 'roles'
+	serializer_class = api.RoleSerializer
+	queryset = api.Role.objects.all()
+	permission_classes = (IsAuthenticated,)
 
 	def create(self, request):
 		admin_or_401(request)
 
-		serializer = api.ItemSerializer(data=request.data)
+		serializer = api.RoleSerializer(data=request.data)
 		if not serializer.is_valid():
 			return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
@@ -69,12 +68,92 @@ class ItemViewSet(viewsets.ModelViewSet):
 	def update(self, request, pk=None):
 		admin_or_401(request)
 
-		serializer = api.ItemSerializer(data=request.data)
+		serializer = api.RoleSerializer(data=request.data)
 		if not serializer.is_valid():
 			return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 		serializer.save()
 
+		return Response(serializer.data)
+
+class CapabilityViewSet(viewsets.ModelViewSet):
+	"""
+	Endpoint to view the Roles
+	"""
+	resource_name = 'capabilities'
+	serializer_class = api.CapabilitySerializer
+	queryset = api.Capability.objects.all()
+	permission_classes = (IsAuthenticated,)
+
+	def create(self, request):
+		admin_or_401(request)
+
+		serializer = api.CapabilitySerializer(data=request.data)
+		if not serializer.is_valid():
+			return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+		serializer.save()
+
+		return Response(serializer.data)
+
+	def update(self, request, pk=None):
+		admin_or_401(request)
+
+		serializer = api.CapabilitySerializer(data=request.data)
+		if not serializer.is_valid():
+			return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+		serializer.save()
+
+		return Response(serializer.data)
+		
+	def list(self, request):
+		user = request.user
+		print(user)
+		roles = api.Role.objects.filter(users__in=[user])		
+		queryset = api.Capability.objects.filter(roles__in=roles)
+		serializer = api.CapabilitySerializer(queryset, many=True)
+		
+		return Response(serializer.data)
+		
+class  HospitalObjectViewSet(viewsets.ModelViewSet):
+	"""
+	Endpoint to view the Roles
+	"""
+	resource_name = 'hospitalobjects'
+	serializer_class = api. HospitalObjectSerializer
+	queryset = api. HospitalObject.objects.all()
+	permission_classes = (IsAuthenticated,)
+
+	def create(self, request):
+		admin_or_401(request)
+
+		serializer = api. HospitalObjectSerializer(data=request.data)
+		if not serializer.is_valid():
+			return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+		serializer.save()
+
+		return Response(serializer.data)
+
+	def update(self, request, pk=None):
+		admin_or_401(request)
+
+		serializer = api. HospitalObjectSerializer(data=request.data)
+		if not serializer.is_valid():
+			return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+		serializer.save()
+
+		return Response(serializer.data)
+		
+	def list(self, request):
+		user = request.user
+		print(user)
+		roles = api.Role. HospitalObjects.filter(users__in=[user])		
+		queryset = api. HospitalObject.objects.filter(roles__in=roles)
+		serializer = api. HospitalObjectSerializer(queryset, many=True)
+		
 		return Response(serializer.data)
 
 class UserViewSet(viewsets.ModelViewSet):

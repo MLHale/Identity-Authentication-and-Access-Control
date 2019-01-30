@@ -3,7 +3,7 @@
 # @Email:  mlhale@unomaha.edu
 # @Filename: urls.py
 # @Last modified by:   mlhale
-# @Last modified time: 2019-01-29T13:53:52-08:00
+# @Last modified time: 2019-01-30T14:00:26-08:00
 # @Copyright: Copyright (C) 2018 Matthew L. Hale
 
 
@@ -18,8 +18,10 @@ from django.views.decorators.csrf import csrf_exempt
 
 #REST API routes
 router = routers.DefaultRouter(trailing_slash=False)
-router.register(r'users', views.UserViewSet)
-router.register(r'items', views.ItemViewSet)
+# router.register(r'users', views.UserViewSet)
+# router.register(r'roles', views.RoleViewSet)
+router.register(r'capabilties', views.CapabilityViewSet)
+router.register(r'hospitalobjects', views. HospitalObjectViewSet)
 
 urlpatterns = [
     url(r'^session', csrf_exempt(views.Session.as_view())),

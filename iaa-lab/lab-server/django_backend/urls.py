@@ -3,7 +3,7 @@
 # @Email:  mlhale@unomaha.edu
 # @Filename: urls.py
 # @Last modified by:   mlhale
-# @Last modified time: 2019-01-29T13:57:43-08:00
+# @Last modified time: 2019-01-30T11:18:34-08:00
 # @Copyright: Copyright (C) 2018 Matthew L. Hale
 
 
@@ -31,6 +31,6 @@ from api import views
 
 urlpatterns = [
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    url(r'^api/', include(api_urls)),
+    url(r'^jsonapi/', include(api_urls)),
     url(r'^', admin.site.urls),
 ]

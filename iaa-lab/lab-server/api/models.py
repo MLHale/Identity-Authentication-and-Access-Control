@@ -3,7 +3,7 @@
 # @Email:  mlhale@unomaha.edu
 # @Filename: models.py
 # @Last modified by:   mlhale
-# @Last modified time: 2019-01-29T13:55:41-08:00
+# @Last modified time: 2019-01-30T14:00:59-08:00
 # @Copyright: Copyright (C) 2018 Matthew L. Hale
 
 
@@ -14,19 +14,47 @@ from django.contrib.auth.models import User
 from rest_framework import serializers
 from django.core.validators import *
 
-
-class Item(models.Model):
-	partname = models.CharField(max_length=100, blank=False)
-	owner = models.OneToOneField(User, on_delete=models.CASCADE, related_name='items', blank=False)
-	description = models.TextField(max_length=1000, blank=False)
+class  HospitalObject(models.Model):
+	name = models.CharField(max_length=100, blank=False)
+	description = models.TextField(max_length=1000, blank=True)
 	
 	def __str__(self):
-		return str(self.partname)
+		return str(self.name)
 
-class ItemSerializer(serializers.ModelSerializer):
+class HospitalObjectSerializer(serializers.ModelSerializer):
 	class Meta:
-		model = Item
-		fields = ('id', 'partname', 'owner', 'description')
+		model =  HospitalObject
+		fields = ('id','name' 'description', 'roles')
+
+class Capability(models.Model):
+	name = models.CharField(max_length=100, blank=False)
+	description = models.TextField(max_length=1000, blank=True)
+	
+	def __str__(self):
+		return str(self.name)
+		
+	class Meta:
+		verbose_name_plural = 'Capabilities'
+
+class CapabilitySerializer(serializers.ModelSerializer):
+	class Meta:
+		model = Capability
+		fields = ('id','name', 'description', 'roles')
+
+class Role(models.Model):
+	name = models.CharField(max_length=100, unique=True, blank=False)
+	description = models.TextField(max_length=1000, blank=True)
+	users = models.ManyToManyField(User, related_name='roles', blank=True)
+	capabilities = models.ManyToManyField(Capability, related_name="roles", blank=True)
+	hospitalobjects = models.ManyToManyField(HospitalObject, related_name="roles", blank=True)
+	
+	def __str__(self):
+		return str(self.name)
+
+class RoleSerializer(serializers.ModelSerializer):
+	class Meta:
+		model = Role
+		fields = ('id', 'name', 'description', 'users', 'capabilities')
 		
 class UserSerializer(serializers.ModelSerializer):
 	lastname = serializers.CharField(source='last_name')
@@ -35,4 +63,4 @@ class UserSerializer(serializers.ModelSerializer):
 	class Meta:
 		resource_name = 'users'
 		model = User
-		fields = ('id', 'username', 'lastname', 'firstname', 'email', 'issuperuser')
+		fields = ('id', 'username', 'lastname', 'firstname', 'email', 'issuperuser', 'roles')

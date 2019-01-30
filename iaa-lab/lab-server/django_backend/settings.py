@@ -3,7 +3,7 @@
 # @Email:  mlhale@unomaha.edu
 # @Filename: settings.py
 # @Last modified by:   mlhale
-# @Last modified time: 2019-01-29T13:58:36-08:00
+# @Last modified time: 2019-01-30T13:53:45-08:00
 # @Copyright: Copyright (C) 2018 Matthew L. Hale
 
 

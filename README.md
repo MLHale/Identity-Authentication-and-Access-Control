@@ -94,7 +94,7 @@ After the role play scenario, the instructor should overview the lesson objectiv
 
 The intro slides introduce these concepts and associated vocabulary.
 
-## Identity Lab 
+## Authentication and Access Control Lab 
 **Run time: 1 hour**
 
 ## Theory 
